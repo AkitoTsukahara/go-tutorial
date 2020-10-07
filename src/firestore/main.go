@@ -18,9 +18,17 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	client, err := app.Firestore(ctx)
+	// データ追加
+    _, _, err = client.Collection("users").Add(ctx, map[string]interface{}{
+        "first":  "Ada",
+        "middle": "Mathison",
+        "last":   "Lovelace",
+        "born":   1815,
+    })
     if err != nil {
-        log.Fatalln(err)
+        log.Fatalf("Failed adding alovelace: %v", err)
     }
+ 
+    // 切断
     defer client.Close()
 }
