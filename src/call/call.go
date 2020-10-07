@@ -1,22 +1,15 @@
-package hello
-
-import (
-    "fmt"
-    "runtime"
-
-    "github.com/carlescere/scheduler"
-)
-
-func SayHello() {
-    fmt.Println("hello, world")
-}
-
-func runSuccess() {
+package main
+ 
+import "fmt"
+import "github.com/carlescere/scheduler"
+import "runtime"
+ 
+func main() {
     // 5秒に1回 success!! と出力させる
     scheduler.Every(5).Seconds().Run(printSuccess)
     runtime.Goexit()
 }
-
+ 
 func printSuccess() {
     fmt.Printf("success!! \n")
 }
