@@ -5,3 +5,4 @@ path/*
 serviceAccount.json
 Gopkg.toml
 Gopkg.lock
+pkg
